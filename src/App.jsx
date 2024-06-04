@@ -20,8 +20,8 @@ const App = () => {
       <Navbar />
       <HeroSection />
       <Features />
-      <Advantages advantage={"Clever Notificcation"} reverse={1} />
-      <Advantages advantage={"Fully Customizable"} />
+      <Advantages advantage={"Clever Notificcation"} reverse={1} key={1} />
+      <Advantages advantage={"Fully Customizable"} key={2} />
       <Faq />
       <Download />
       <Footer />

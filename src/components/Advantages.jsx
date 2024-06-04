@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Collection from "./Collection";
 import advantage1 from "../assets/advantage1.png";
 import bell from "../assets/bell.png";
@@ -6,11 +6,16 @@ import star from "../assets/star.png";
 import star2 from "../assets/Star2.png";
 
 import { useMode } from "../context/ModeContext";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+import gsap from "gsap";
 const Advantages = ({ advantage, reverse = 0 }) => {
   const { mode } = useMode();
+
   return (
     <div
-      className={` min-h-[80vh]  py-10 flex relative ${
+      className={`advantage-wrap min-h-[60vh]  py-1 flex relative ${
         reverse && "flex-row-reverse"
       } items-center flex-wrap-reverse `}
     >
@@ -28,10 +33,10 @@ const Advantages = ({ advantage, reverse = 0 }) => {
         />
       )}
 
-      <div className="z-[2]">
+      <div className="collection z-[2]">
         <Collection image={advantage1} reverse={1} />
       </div>
-      <div className="flex-1 h-full  min-w-[300px]">
+      <div className="flex-1 h-full  min-w-[300px] advantage">
         {!reverse ? (
           ""
         ) : (

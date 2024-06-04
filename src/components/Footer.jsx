@@ -29,11 +29,13 @@ const Footer = () => {
       heading: "NewsLetter",
       subHeading: [
         "Stay Up To Date",
-        <div className="flex items-stretch">
+        <div className="flex items-stretch gap-1 ">
           <input
             type="text"
-            className="w-[200px] bg-gray-200 rounded-md
+            className="w-[200px] bg-gray-200 rounded-md text-black outline-none px-1
+            
           "
+            placeholder="Your email"
           />
           <button
             className={`px-2 py-3  rounded-md ${
@@ -47,9 +49,13 @@ const Footer = () => {
     },
   ];
   return (
-    <div className="w-full flex items-start justify-between flex-wrap gap-y-6 py-20 border-b-[1px] border-black">
+    <div
+      className={`w-full flex items-start justify-between flex-wrap gap-y-6 py-20 border-b-[1px] ${
+        mode ? "border-white" : "border-black"
+      }`}
+    >
       {footerData.map((data, index) => (
-        <div className="flex flex-col mr-2" key={index}>
+        <div className="flex flex-col w-[200px] my-4 " key={index}>
           <h1 className="font-medium text-3xl flex items-center gap-1">
             {data.icon}
             {data.heading}

@@ -11,12 +11,38 @@ import hero3 from "../assets/hero3.png";
 import star from "../assets/star.png";
 import star2 from "../assets/Star2.png";
 import { useMode } from "../context/ModeContext";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 const HeroSection = () => {
   const { mode } = useMode();
+  useGSAP(() => {
+    gsap.from(
+      ".left .content h1,.left .content p, .left .content div button,.highlights",
+      {
+        x: -100,
+        opacity: 0,
+        delay: 1,
+        duration: 1,
+        stagger: 0.2,
+      }
+    );
+    gsap.from(".right div img, .right .ring-img div div", {
+      x: 100,
+      opacity: 0,
+      delay: 1,
+      duration: 1,
+      stagger: 0.2,
+    });
+    gsap.from(".gradient", {
+      opacity: 0,
+      delay: 1,
+      duration: 1,
+    });
+  });
   return (
     <div className="min-h-screen h-full flex flex-wrap">
       <div className="left flex-1 flex flex-col relative">
-        <div className="absolute -top-[5rem] left-[25rem] -translate-x-1/2 ">
+        <div className="gradient absolute -top-[5rem] left-[25rem] -translate-x-1/2 ">
           <GradientBg width={500} height={500} scale={0.85} />
         </div>
         <div className="content flex-[2] flex items-start justify-center flex-col mt-20 z-10">
@@ -37,7 +63,7 @@ const HeroSection = () => {
             <button
               className={`px-6 py-4  text-[1.25rem] rounded-md flex items-center gap-2 ${
                 mode
-                  ? "hover:bg-white hover:text-black"
+                  ? " hover:bg-white hover:text-black"
                   : "hover:bg-black hover:text-white"
               } ease-in-out duration-500`}
             >
@@ -51,7 +77,11 @@ const HeroSection = () => {
             alt="star"
             className="absolute top-5 left-[10rem] scale-75 rotate-45"
           />
-          <img src={hightlights} alt="" className="h-full object-contain " />
+          <img
+            src={hightlights}
+            alt=""
+            className="h-full object-contain highlights"
+          />
         </div>
       </div>
       <div className="right flex-1  relative ">
@@ -71,10 +101,10 @@ const HeroSection = () => {
             alt=""
             className="absolute left-48 top-36 z-[2] h-[700px] object-contain"
           />
-          <div className="absolute left-10 z-[1]">
+          <div className="absolute left-10 z-[1] ring-img">
             <Ring />
           </div>
-          <div className="absolute top-[20rem] left-[23rem] -translate-x-1/2">
+          <div className="gradient absolute top-[20rem] left-[23rem] -translate-x-1/2">
             <GradientBg width={500} height={500} scale={-1} />
           </div>
           <img

@@ -3,9 +3,20 @@ import logo from "../assets/logo.png";
 import { useMode } from "../context/ModeContext";
 import { CiLight } from "react-icons/ci";
 import { MdDarkMode } from "react-icons/md";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 const Navbar = () => {
+  useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.from("#logo, .navlinks a, .darkmodebtn, .download-btn", {
+      y: -40,
+      opacity: 0,
+      duration: 0.3,
+      stagger: 0.2,
+    });
+  });
   const { mode, setMode } = useMode();
-  console.log(mode);
   return (
     <nav className="flex items-center justify-between">
       <div className="left flex items-center">
@@ -14,12 +25,12 @@ const Navbar = () => {
           <h1 className="text-3xl font-semibold">uifry</h1>
           <sup className="font-bold text-[0.4rem]">TM</sup>
         </div>
-        <div className="hidden lg:block z-20">
+        <div className="hidden lg:block z-20 navlinks">
           {["Home", "About Us", "Pricing", "Features"].map((item, index) => (
             <a
               href="#"
               key={index}
-              className={`ml-8 text-[1.25rem] hover:text-[#ff5555] ${
+              className={`ml-8 text-[1.25rem] hover:text-[#ff5555]  inline-block ${
                 index === 0 ? "text-[#ff5555] font-semibold" : "font-medium"
               }`}
             >
@@ -29,7 +40,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="right flex items-center z-20">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 darkmodebtn">
           <CiLight style={{ fontSize: "1.5rem" }} />
           <div
             className={`w-[50px] h-[30px] md:w-[80px] md:h-[40px] rounded-full cursor-pointer ${
@@ -50,7 +61,7 @@ const Navbar = () => {
           <MdDarkMode style={{ fontSize: "1.5rem" }} />
         </div>
         <button
-          className={`px-4 py-2 md:px-10 md:py-4  md:text-[1.25rem] rounded-md ml-4 z-20 ${
+          className={`download-btn px-4 py-2 md:px-10 md:py-4  md:text-[1.25rem] rounded-md ml-4 z-20 ${
             mode ? "bg-white text-black" : "bg-black text-white"
           }`}
         >
