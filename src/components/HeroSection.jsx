@@ -9,14 +9,17 @@ import hero1 from "../assets/hero1.png";
 import hero2 from "../assets/hero2.png";
 import hero3 from "../assets/hero3.png";
 import star from "../assets/star.png";
+import star2 from "../assets/Star2.png";
+import { useMode } from "../context/ModeContext";
 const HeroSection = () => {
+  const { mode } = useMode();
   return (
     <div className="min-h-screen h-full flex flex-wrap">
       <div className="left flex-1 flex flex-col relative">
-        <div className="absolute -top-[5rem] left-[25rem] -translate-x-1/2 -z-10">
+        <div className="absolute -top-[5rem] left-[25rem] -translate-x-1/2 ">
           <GradientBg width={500} height={500} scale={0.85} />
         </div>
-        <div className="content flex-[2] flex items-start justify-center flex-col mt-20 ">
+        <div className="content flex-[2] flex items-start justify-center flex-col mt-20 z-10">
           <h1 className="text-6xl font-bold">Make The Best</h1>
           <h1 className="text-6xl font-bold">Financial Decisions</h1>
           <p className="text-[#7f7e79] text-[1.2rem] my-6">
@@ -34,7 +37,7 @@ const HeroSection = () => {
         </div>
         <div className="highlights flex-[1] relative">
           <img
-            src={star}
+            src={mode ? star2 : star}
             alt="star"
             className="absolute top-5 left-[10rem] scale-75 rotate-45"
           />
@@ -46,26 +49,26 @@ const HeroSection = () => {
           <img
             src={hero1}
             alt=""
-            className="absolute left-0 top-0 z-[3] h-[700px] object-contain"
+            className="absolute left-0 top-0 z-[4] h-[700px] object-contain"
           />
           <img
             src={hero2}
             alt=""
-            className="absolute left-24 top-16 z-[2] h-[700px] object-contain"
+            className="absolute left-24 top-16 z-[3] h-[700px] object-contain"
           />
           <img
             src={hero3}
             alt=""
-            className="absolute left-48 top-36 z-[1] h-[700px] object-contain"
+            className="absolute left-48 top-36 z-[2] h-[700px] object-contain"
           />
-          <div className="absolute left-10 -z-8">
+          <div className="absolute left-10 z-[1]">
             <Ring />
           </div>
-          <div className="absolute top-[20rem] left-[23rem] -translate-x-1/2 -z-10">
+          <div className="absolute top-[20rem] left-[23rem] -translate-x-1/2">
             <GradientBg width={500} height={500} scale={-1} />
           </div>
           <img
-            src={star}
+            src={mode ? star2 : star}
             alt="star"
             className="absolute top-[38rem] left-[5rem]  z-10 scale-75"
           />

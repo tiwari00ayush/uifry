@@ -3,7 +3,11 @@ import Collection from "./Collection";
 import advantage1 from "../assets/advantage1.png";
 import bell from "../assets/bell.png";
 import star from "../assets/star.png";
+import star2 from "../assets/Star2.png";
+
+import { useMode } from "../context/ModeContext";
 const Advantages = ({ advantage, reverse = 0 }) => {
+  const { mode } = useMode();
   return (
     <div
       className={` min-h-[80vh]  py-10 flex relative ${
@@ -12,19 +16,21 @@ const Advantages = ({ advantage, reverse = 0 }) => {
     >
       {!reverse ? (
         <img
-          src={star}
+          src={mode ? star2 : star}
           alt="star"
           className=" scale-50 absolute top-0 left-1/2 rotate-45"
         />
       ) : (
         <img
-          src={star}
+          src={mode ? star2 : star}
           alt="star"
           className=" scale-75 absolute top-0 -right-0 "
         />
       )}
 
-      <Collection image={advantage1} reverse={1} />
+      <div className="z-[2]">
+        <Collection image={advantage1} reverse={1} />
+      </div>
       <div className="flex-1 h-full  min-w-[300px]">
         {!reverse ? (
           ""

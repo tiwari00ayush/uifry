@@ -5,7 +5,9 @@ import Ring from "./Ring";
 import download from "../assets/download.png";
 import star from "../assets/star.png";
 import star2 from "../assets/Star2.png";
+import { useMode } from "../context/ModeContext";
 const Download = () => {
+  const { mode } = useMode();
   return (
     <div className="w-full h-[500px] bg-black  text-white relative my-20 rounded-lg">
       <div className=" -z-20 -top-40 -left-40 absolute">
@@ -13,12 +15,12 @@ const Download = () => {
       </div>
 
       <img
-        src={star}
+        src={mode ? star2 : star}
         alt="star"
         className="absolute -left-20 top-40 -translate-x-1/2 rotate-45 scale-75"
       />
       <img
-        src={star}
+        src={mode ? star2 : star}
         alt="star"
         className="absolute -right-28 -top-20 -translate-x-1/2 scale-75"
       />

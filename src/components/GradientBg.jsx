@@ -1,13 +1,17 @@
 import React from "react";
 import overlay from "../assets/overlay.jpeg";
+import { useMode } from "../context/ModeContext";
+
 const GradientBg = ({ width = 500, height = 500, scale = 1 }) => {
+  const { mode } = useMode();
   return (
     <div
-      className="bg-white overflow-hidden"
+      className={`${mode ? "bg-black" : "bg-white"} overflow-hidden`}
       style={{
         width: `${width}px`,
         height: `${height}px`,
         transform: `scale(${scale})`,
+        filter: mode && "blur(35px)",
       }}
     >
       <div className="relative w-full h-full top-0 left-0">
@@ -32,7 +36,7 @@ const GradientBg = ({ width = 500, height = 500, scale = 1 }) => {
           }}
         ></div>
         <img
-          className="absolute w-full h-full mix-blend-overlay"
+          className={`absolute w-full h-full mix-blend-overlay `}
           src={"https://momentsingraphics.de/Media/BlueNoise/WhiteNoiseFFT.png"}
           alt="rectangle"
         />

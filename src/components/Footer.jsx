@@ -2,7 +2,10 @@ import React from "react";
 import logo from "../assets/logo.png";
 import mail from "../assets/mail.png";
 import phone from "../assets/phone.png";
+import { useMode } from "../context/ModeContext";
+
 const Footer = () => {
+  const { mode } = useMode();
   const footerData = [
     {
       icon: <img src={logo} alt="logo" />,
@@ -29,10 +32,14 @@ const Footer = () => {
         <div className="flex items-stretch">
           <input
             type="text"
-            className="w-[200px] bg-gray-200
+            className="w-[200px] bg-gray-200 rounded-md
           "
           />
-          <button className="px-2 py-3 bg-black text-white rounded-md">
+          <button
+            className={`px-2 py-3  rounded-md ${
+              mode ? "bg-white text-black" : "bg-black text-white"
+            }`}
+          >
             Subscribe
           </button>
         </div>,
