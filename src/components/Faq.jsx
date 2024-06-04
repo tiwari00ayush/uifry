@@ -1,13 +1,20 @@
 import React from "react";
 import star from "../assets/star.png";
+import star2 from "../assets/Star2.png";
+import { useMode } from "../context/ModeContext";
 const Faq = () => {
+  const { mode } = useMode();
   return (
     <div className="min-h-[100vh] py-4 ">
       <h3 className="text-red-500">FAQ</h3>
       <h1 className="text-5xl font-semibold">Frequently Asked</h1>
       <h1 className="text-5xl font-semibold mb-8 mt-2">Questions</h1>
       <div className="grid  gap-4 grid-cols-2 relative">
-        <img src={star} alt="star" className=" absolute -top-12 left-1/2" />
+        <img
+          src={mode ? star2 : star}
+          alt="star"
+          className=" absolute -top-12 left-1/2"
+        />
         {[
           {
             id: 0,

@@ -27,10 +27,20 @@ const HeroSection = () => {
             ratione laborum ullam minima eveniet doloremque a vero neque totam.
           </p>
           <div className="buttons flex items-center gap-2">
-            <button className="px-6 py-4 bg-black text-white text-[1.25rem] rounded-md flex items-center gap-2">
+            <button
+              className={`px-6 py-4 ${
+                mode ? "bg-white text-black" : "bg-black text-white"
+              } text-[1.25rem] rounded-md flex items-center gap-2`}
+            >
               Get Started <HiArrowLongRight />
             </button>
-            <button className="px-6 py-4  text-[1.25rem] rounded-md flex items-center gap-2 hover:bg-black hover:text-white ease-in-out duration-500">
+            <button
+              className={`px-6 py-4  text-[1.25rem] rounded-md flex items-center gap-2 ${
+                mode
+                  ? "hover:bg-white hover:text-black"
+                  : "hover:bg-black hover:text-white"
+              } ease-in-out duration-500`}
+            >
               <IoPlayCircleOutline /> Watch Video
             </button>
           </div>
