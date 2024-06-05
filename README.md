@@ -1,8 +1,29 @@
-# React + Vite
+# Uifry - Landing page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Setup :
 
-Currently, two official plugins are available:
+Before you begin, ensure you have Node.js and npm installed on your machine. This project uses npm for package management.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repository to your local machine:
+
+```sh
+git clone https://github.com/tiwari00ayush/uifry.git
+```
+
+2. Navigate to the project directory:
+
+```sh
+cd uifry
+```
+
+3. Install the dependencies:
+
+```sh
+npm i
+```
+
+4. Run the Project:
+
+```sh
+npm run dev
+```
