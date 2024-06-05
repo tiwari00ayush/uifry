@@ -67,19 +67,19 @@ const Features = () => {
         <h2 className="text-4xl font-bold mt-2 mb-4">Uifry Premium</h2>
         {[
           {
-            icon: <img src={star1} />,
+            icon: star1,
             title: "budgeting intervals",
             description:
               "Cum et convallis risus placerat aliquam, nunc. Scelerisque aliquet faucibus tincidunt eu adipiscing sociis arcu lorem porttitor.",
           },
           {
-            icon: <img src={cube1} />,
+            icon: cube1,
             title: "budgeting intervals",
             description:
               "Cum et convallis risus placerat aliquam, nunc. Scelerisque aliquet faucibus tincidunt eu adipiscing sociis arcu lorem porttitor.",
           },
           {
-            icon: <img src={cube2} />,
+            icon: cube2,
             title: "budgeting intervals",
             description:
               "Cum et convallis risus placerat aliquam, nunc. Scelerisque aliquet faucibus tincidunt eu adipiscing sociis arcu lorem porttitor.",
@@ -87,7 +87,7 @@ const Features = () => {
         ].map((feature, index) => (
           <div key={index} className="my-5">
             <h5 className="my-2 font-semibold text-[1.2rem] flex items-center gap-2">
-              {feature.icon}
+              <img src={feature.icon} />
               {feature.title}
             </h5>
             <p className="text-[#7f7e79]">{feature.description}</p>

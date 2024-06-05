@@ -5,6 +5,7 @@ import { CiLight } from "react-icons/ci";
 import { MdDarkMode } from "react-icons/md";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { NavBarData } from "../data";
 const Navbar = () => {
   useGSAP(() => {
     const tl = gsap.timeline();
@@ -21,12 +22,14 @@ const Navbar = () => {
     <nav className="flex items-center justify-between">
       <div className="left flex items-center">
         <div id="logo" className="flex items-center gap-1">
-          <img src={logo} alt="logo" />
-          <h1 className="text-3xl font-semibold">uifry</h1>
-          <sup className="font-bold text-[0.4rem]">TM</sup>
+          <img src={NavBarData.icon} alt="logo" />
+          <h1 className="text-3xl font-semibold">{NavBarData.logo}</h1>
+          <sup className="font-bold text-[0.4rem]">
+            {NavBarData.superscript}
+          </sup>
         </div>
         <div className="hidden lg:block z-20 navlinks">
-          {["Home", "About Us", "Pricing", "Features"].map((item, index) => (
+          {NavBarData.navlinks.map((item, index) => (
             <a
               href="#"
               key={index}
@@ -65,7 +68,7 @@ const Navbar = () => {
             mode ? "bg-white text-black" : "bg-black text-white"
           }`}
         >
-          Download
+          {NavBarData.ctaBtn}
         </button>
       </div>
     </nav>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Ring from "./Ring";
 import GradientBg from "./GradientBg";
 
@@ -13,11 +13,15 @@ import star2 from "../assets/Star2.png";
 import { useMode } from "../context/ModeContext";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { HeroData } from "../data";
 const HeroSection = () => {
   const { mode } = useMode();
+  const watchRef = useRef();
+  console.log(watchRef);
+  console.log();
   useGSAP(() => {
     gsap.from(
-      ".left .content h1,.left .content p, .left .content div button,.highlights",
+      ".left .content h1,.left .content div .get,.left .content p,.highlights",
       {
         x: -100,
         opacity: 0,
@@ -26,6 +30,14 @@ const HeroSection = () => {
         stagger: 0.2,
       }
     );
+    if (watchRef.current) {
+      gsap.from(watchRef.current, {
+        x: -100,
+        opacity: 0,
+        delay: 2,
+        duration: 1,
+      });
+    }
     gsap.from(".right div img, .right .ring-img div div", {
       x: 100,
       opacity: 0,
@@ -46,28 +58,28 @@ const HeroSection = () => {
           <GradientBg width={500} height={500} />
         </div>
         <div className="content flex-[2] flex items-start justify-center flex-col mt-20 z-10">
-          <h1 className="text-6xl font-bold">Make The Best</h1>
-          <h1 className="text-6xl font-bold">Financial Decisions</h1>
+          <h1 className="text-6xl font-bold">{HeroData.title[0]}</h1>
+          <h1 className="text-6xl font-bold">{HeroData.title[1]}</h1>
           <p className="text-[#7f7e79] text-[1.2rem] my-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-            ratione laborum ullam minima eveniet doloremque a vero neque totam.
+            {HeroData.description}
           </p>
           <div className="buttons flex items-center gap-2">
             <button
-              className={`px-6 py-4 ${
+              className={`get px-6 py-4 ${
                 mode ? "bg-white text-black" : "bg-black text-white"
               } text-[1.25rem] rounded-md flex items-center gap-2`}
             >
-              Get Started <HiArrowLongRight />
+              {HeroData.ctaBtn[0]} <HiArrowLongRight />
             </button>
             <button
-              className={`px-6 py-4  text-[1.25rem] rounded-md flex items-center gap-2 ${
+              ref={watchRef}
+              className={` watch px-6 py-4  text-[1.25rem] rounded-md flex items-center gap-2 ${
                 mode
                   ? " hover:bg-white hover:text-black"
                   : "hover:bg-black hover:text-white"
-              } ease-in-out duration-500`}
+              }`}
             >
-              <IoPlayCircleOutline /> Watch Video
+              <IoPlayCircleOutline /> {HeroData.ctaBtn[1]}
             </button>
           </div>
         </div>

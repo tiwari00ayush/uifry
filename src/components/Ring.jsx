@@ -5,7 +5,6 @@ const Ring = ({ color = null }) => {
   const { mode } = useMode();
   const [ringColor, setRingColor] = useState("black");
   useEffect(() => {
-    console.log(mode);
     const newColor = mode ? "white" : "black";
     setRingColor(newColor);
   }, [mode]);
