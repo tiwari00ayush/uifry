@@ -7,6 +7,7 @@ import Advantages from "./Advantages";
 import Faq from "./Faq";
 import Download from "./Download";
 import Footer from "./Footer";
+import Testimonial from "./Testimonial";
 export {
   Navbar,
   HeroSection,
@@ -17,4 +18,5 @@ export {
   Faq,
   Download,
   Footer,
+  Testimonial,
 };

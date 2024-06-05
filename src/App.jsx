@@ -7,6 +7,7 @@ import {
   Faq,
   Download,
   Footer,
+  Testimonial,
 } from "./components";
 import { useMode } from "./context/ModeContext";
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
       <Features />
       <Advantages advantage={"Clever Notificcation"} reverse={1} key={1} />
       <Advantages advantage={"Fully Customizable"} key={2} />
+      <Testimonial />
       <Faq />
       <Download />
       <Footer />
