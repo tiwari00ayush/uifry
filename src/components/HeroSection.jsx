@@ -43,7 +43,7 @@ const HeroSection = () => {
     <div className="min-h-screen h-full flex flex-wrap">
       <div className="left flex-1 flex flex-col relative">
         <div className="gradient absolute -top-[5rem] left-[25rem] -translate-x-1/2 ">
-          <GradientBg width={500} height={500} scale={0.85} />
+          <GradientBg width={500} height={500} />
         </div>
         <div className="content flex-[2] flex items-start justify-center flex-col mt-20 z-10">
           <h1 className="text-6xl font-bold">Make The Best</h1>
